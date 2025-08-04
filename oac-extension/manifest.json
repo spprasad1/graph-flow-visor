@@ -1,0 +1,130 @@
+{
+  "name": "network-analysis-viz",
+  "displayName": "Network Analysis Visualization",
+  "description": "Interactive network graph visualization for analyzing connections between entities with risk assessment",
+  "version": "1.0.0",
+  "author": "Lovable",
+  "keywords": ["network", "graph", "security", "connections", "visualization"],
+  "supportedLanguages": ["en"],
+  "apiVersion": "1.0",
+  "type": "visualization",
+  "thumbnail": "thumbnail.png",
+  "files": [
+    "visualization.js",
+    "config.js",
+    "style.css"
+  ],
+  "dataRoles": [
+    {
+      "name": "destination_id",
+      "displayName": "Destination ID",
+      "description": "Unique identifier for destination nodes",
+      "kind": "dimension",
+      "required": true,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "destination_hostname",
+      "displayName": "Destination Hostname", 
+      "description": "Hostname of the destination",
+      "kind": "dimension",
+      "required": false,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "destination_ip",
+      "displayName": "Destination IP",
+      "description": "IP address of the destination",
+      "kind": "dimension", 
+      "required": true,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "source_hostname",
+      "displayName": "Source Hostname",
+      "description": "Hostname of the source",
+      "kind": "dimension",
+      "required": false,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "source_ip", 
+      "displayName": "Source IP",
+      "description": "IP address of the source",
+      "kind": "dimension",
+      "required": true,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "port",
+      "displayName": "Port",
+      "description": "Connection port number",
+      "kind": "dimension",
+      "required": true,
+      "maxColumnCount": 1
+    },
+    {
+      "name": "connection_count",
+      "displayName": "Connection Count",
+      "description": "Number of connections (optional metric)",
+      "kind": "measure",
+      "required": false,
+      "maxColumnCount": 1
+    }
+  ],
+  "properties": [
+    {
+      "name": "nodeSize",
+      "displayName": "Node Size",
+      "description": "Base size for network nodes",
+      "type": "number",
+      "defaultValue": 8,
+      "minValue": 4,
+      "maxValue": 20
+    },
+    {
+      "name": "linkStrength",
+      "displayName": "Link Strength", 
+      "description": "Strength of force simulation links",
+      "type": "number",
+      "defaultValue": 1,
+      "minValue": 0.1,
+      "maxValue": 3
+    },
+    {
+      "name": "chargeStrength",
+      "displayName": "Node Repulsion",
+      "description": "Repulsion force between nodes",
+      "type": "number", 
+      "defaultValue": -300,
+      "minValue": -1000,
+      "maxValue": -50
+    },
+    {
+      "name": "showLabels",
+      "displayName": "Show Node Labels",
+      "description": "Display labels on network nodes",
+      "type": "boolean",
+      "defaultValue": true
+    },
+    {
+      "name": "enableTooltips",
+      "displayName": "Enable Tooltips",
+      "description": "Show detailed information on hover",
+      "type": "boolean", 
+      "defaultValue": true
+    },
+    {
+      "name": "colorScheme",
+      "displayName": "Color Scheme",
+      "description": "Color scheme for risk levels",
+      "type": "string",
+      "defaultValue": "security",
+      "options": [
+        {"value": "security", "displayName": "Security (Red/Yellow/Green)"},
+        {"value": "traffic", "displayName": "Traffic (Blue/Orange/Purple)"},
+        {"value": "custom", "displayName": "Custom Colors"}
+      ]
+    }
+  ]
+}

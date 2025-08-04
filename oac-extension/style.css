@@ -1,0 +1,238 @@
+/* Network Analysis Visualization Styles for Oracle Analytics Cloud */
+
+.network-viz {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 4px;
+    font-family: 'Oracle Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.network-viz .node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.network-viz .node:hover circle {
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+}
+
+.network-viz .link {
+    pointer-events: none;
+}
+
+.network-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 250px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.tooltip-header {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #4dd0e1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 4px;
+}
+
+.tooltip-content div {
+    margin: 3px 0;
+    line-height: 1.4;
+}
+
+.tooltip-content strong {
+    color: #e1e5e9;
+}
+
+/* Dark theme support */
+.oracle-analytics-dark .network-viz {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+.oracle-analytics-dark .network-tooltip {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2d3748;
+}
+
+.oracle-analytics-dark .tooltip-header {
+    color: #3182ce;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.oracle-analytics-dark .tooltip-content strong {
+    color: #4a5568;
+}
+
+/* High contrast theme support */
+.oracle-analytics-high-contrast .network-viz .node circle {
+    stroke-width: 3;
+    stroke: #000;
+}
+
+.oracle-analytics-high-contrast .network-viz .link {
+    stroke: #000;
+    stroke-width: 2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .network-tooltip {
+        font-size: 11px;
+        padding: 8px;
+        max-width: 200px;
+    }
+}
+
+/* Animation classes for smooth transitions */
+.node-enter {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.node-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 300ms ease-in;
+}
+
+.node-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.node-exit-active {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 300ms ease-out;
+}
+
+/* Loading state */
+.network-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.network-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error state */
+.network-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #dc3545;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+.network-error-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.network-error-message {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.network-error-detail {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* Legend styles */
+.network-legend {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e1e5e9;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 11px;
+    max-width: 200px;
+    backdrop-filter: blur(4px);
+}
+
+.network-legend-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.network-legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.network-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 1px solid #fff;
+}
+
+.network-legend-label {
+    color: #6c757d;
+}
+
+/* Accessibility improvements */
+.network-viz:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.node[aria-selected="true"] circle {
+    stroke: #007bff;
+    stroke-width: 4;
+}
+
+/* Print styles */
+@media print {
+    .network-tooltip {
+        display: none;
+    }
+    
+    .network-viz {
+        background: white;
+        border: 1px solid #000;
+    }
+    
+    .network-viz .node circle {
+        stroke: #000;
+    }
+    
+    .network-viz .link {
+        stroke: #000;
+    }
+}
