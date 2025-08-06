@@ -8,7 +8,8 @@
   "supportedLanguages": ["en"],
   "apiVersion": "1.0",
   "type": "visualization",
-  "thumbnail": "thumbnail.png",
+  "id": "network-analysis-viz",
+  "pluginId": "network-analysis-viz-plugin",
   "files": [
     "visualization.js",
     "config.js",
