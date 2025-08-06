@@ -32,18 +32,18 @@ if not exist "dist" mkdir dist
 
 :: Create the extension package
 echo Creating extension package...
-powershell -command "Compress-Archive -Path 'manifest.json','visualization.js','config.js','style.css' -DestinationPath 'dist\network-analysis-viz.dva' -Force"
+powershell -command "Compress-Archive -Path 'manifest.json','visualization.js','config.js','style.css' -DestinationPath 'dist\network-analysis-viz.zip' -Force"
 
 if %ERRORLEVEL% EQU 0 (
     echo.
     echo ✅ SUCCESS: Extension package created!
-    echo 📦 File: dist\network-analysis-viz.dva
+    echo 📦 File: dist\network-analysis-viz.zip
     echo.
     echo 🚀 Upload Instructions:
     echo 1. Open Oracle Analytics Cloud
     echo 2. Navigate to Console → Extensions  
     echo 3. Click "Upload Extension"
-    echo 4. Select: dist\network-analysis-viz.dva
+    echo 4. Select: dist\network-analysis-viz.zip
     echo 5. Enable the extension after upload
     echo.
 ) else (

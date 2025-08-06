@@ -24,23 +24,23 @@ mkdir -p dist
 
 # Create the extension package
 echo "Creating extension package..."
-zip -r "dist/network-analysis-viz.dva" manifest.json visualization.js config.js style.css
+zip -r "dist/network-analysis-viz.zip" manifest.json visualization.js config.js style.css
 
 if [ $? -eq 0 ]; then
     echo
     echo "✅ SUCCESS: Extension package created!"
-    echo "📦 File: dist/network-analysis-viz.dva"
+    echo "📦 File: dist/network-analysis-viz.zip"
     echo
     echo "🚀 Upload Instructions:"
     echo "1. Open Oracle Analytics Cloud"
     echo "2. Navigate to Console → Extensions"
     echo "3. Click 'Upload Extension'"
-    echo "4. Select: dist/network-analysis-viz.dva"
+    echo "4. Select: dist/network-analysis-viz.zip"
     echo "5. Enable the extension after upload"
     echo
     
     # Show file size
-    size=$(du -h "dist/network-analysis-viz.dva" | cut -f1)
+    size=$(du -h "dist/network-analysis-viz.zip" | cut -f1)
     echo "📊 Package size: $size"
 else
     echo
